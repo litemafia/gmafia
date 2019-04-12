@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=1000">
+		<script src="js/jquery-3.3.1.slim.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/dev.js"></script>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		<div id="mafia" class="container">
+			<div class="row">
+				<div class="col-2">
+					<div class="card">
+						<img src="img/avatar.png" class="card-img-top">
+						<div class="spinner-grow text-success" role="status">
+							<span class="sr-only"></span>
+						</div>
+						<div class="info">
+							<span class="badge badge-pill badge-info">Blizzard</span>
+						</div>
+					</div>
+					<div id="create">
+						<button type="button" class="btn btn-outline-primary btn-lg btn-block">Создать</button>
+						<button type="button" class="btn btn-outline-warning btn-lg btn-block">Играть</button>
+					</div>
+				</div>
+				<div class="col-8">
+					<button type="button" class="btn btn-outline-primary btn-sm">Акции</button>
+					<button type="button" class="btn btn-outline-secondary btn-sm">Магазин</button>
+					<button type="button" class="btn btn-outline-success btn-sm">Топы</button>
+					<button type="button" class="btn btn-outline-danger btn-sm">Достижения</button>
+					<button type="button" class="btn btn-outline-warning btn-sm">Кланы</button>
+					<button type="button" class="btn btn-outline-info btn-sm">Ивент</button>
+					<div v-if="cor">
+						<div id="rooms" v-if="rooms">
+							<ul class="list-group">
+								<li class="list-group-item"><div class="nick">Bionix</div><div class="liga">Серебро</div><div class="count">4/12</div><div class="coins">20</div><button type="button" class="btn btn-outline-primary btn-sm join">Войти</button></li>
+								<li class="list-group-item"><div class="nick">МафКа ДнО</div><div class="liga">Серебро</div><div class="count">2/8</div><div class="coins">20</div><button type="button" class="btn btn-outline-primary btn-sm join">Войти</button></li>
+								<li class="list-group-item"><div class="nick">Labirint</div><div class="liga">Золото</div><div class="count">1/8</div><div class="coins">20</div><button type="button" class="btn btn-outline-warning btn-sm join">Войти</button></li>
+								<li class="list-group-item"><div class="nick">Коловрат</div><div class="liga">Золото</div><div class="count">16/20</div><div class="coins">20</div><button type="button" class="btn btn-outline-warning btn-sm join">Войти</button></li>
+								<li class="list-group-item"><div class="nick">Миледи</div><div class="liga">Элита</div><div class="count">7/16</div><div class="coins">20</div><button type="button" class="btn btn-outline-danger btn-sm join">Войти</button></li>
+								<li class="list-group-item"><div class="nick">Нафар</div><div class="liga">Элита</div><div class="count">1/8</div><div class="coins">10000</div><button type="button" class="btn btn-outline-danger btn-sm join">Войти</button></li>
+							</ul>
+						</div>
+						<div v-if="nabor">nabor</div>
+					</div>
+					<div v-if="game">game</div>
+				</div>
+				<div class="col-2">
+					<div id="boss" v-if="boss">
+						<img src="img/boss.jpg" class="card-img-top">
+						<div class="alert alert-warning" role="alert">Не сбивать до 15:00! Спасибо!</div>
+						<button type="button" class="btn btn-outline-danger btn-lg btn-block">Сбить</button>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-10">
+					<div id="chat" v-if="chat"></div>
+				</div>
+				<div class="col-2">
+					<div id="online" v-if="online">
+						<div class="btn-group btn-block" role="group" aria-label="">
+							<button type="button" class="btn btn-secondary">Online</button>
+							<button type="button" class="btn btn-secondary">Frends</button>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item">Bionix</li>
+							<li class="list-group-item">МафКа ДнО</li>
+							<li class="list-group-item">Labirint</li>
+							<li class="list-group-item">Коловрат</li>
+							<li class="list-group-item">Миледи</li>
+							<li class="list-group-item">Bionix</li>
+							<li class="list-group-item">МафКа ДнО</li>
+							<li class="list-group-item">Labirint</li>
+							<li class="list-group-item">Коловрат</li>
+							<li class="list-group-item">Миледи</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var mafia = new Vue({
+				el: '#mafia',
+				data: {
+					cor: true,
+					rooms: true,
+					nabor: false,
+					game: false,
+					chat: true,
+					online: true,
+					boss: true
+				}
+			});
+		</script>
+	</body>
+</html>
